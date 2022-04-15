@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs'
-const path = require('path')
+import * as path from 'path'
+//const path = require('path')
 
 export default class EyesOnlyGaze {
     constructor(misty) {
