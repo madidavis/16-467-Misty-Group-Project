@@ -1,5 +1,5 @@
 /*
- * File for Intimcay Regulation Head Aversion Skill - Eyes Only
+ * File for Intimacy Regulation Head Aversion Skill - Eyes Only
  */
 
 /** @brief      :       Paths to Access Gaze Img Files */

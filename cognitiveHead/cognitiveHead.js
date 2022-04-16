@@ -1,5 +1,6 @@
-// cognitive aversion head move skill
-// import "gaussian"
+/**
+ * File for Cognitive Processing Head Aversion Skill - Head Only
+ */
 
 // cognitive processing aversion
 const CS_mean = 1.32;
@@ -7,9 +8,46 @@ const CS_stdev = 0.47;
 const CE_mean = 2.23;
 const CE_stdev = 0.63;
 
-//cognitiveStartDistribution = gaussian(CS_mean, CS_stdev);
-//cognitiveEndDistribution = gaussian(CE_mean, CE_stdev);
+/**
+ * @brief       : function to randomly generate normal distributions with given mean and stdev
+ * @returns     : function for normal distribution 
+ */
+ function gaussian(mean, stdev) {
+    var y2;
+    var use_last = false;
+    return function() {
+      var y1;
+      if (use_last) {
+        y1 = y2;
+        use_last = false;
+      } else {
+        var x1, x2, w;
+        do {
+          x1 = 2.0 * Math.random() - 1.0;
+          x2 = 2.0 * Math.random() - 1.0;
+          w = x1 * x1 + x2 * x2;
+        } while (w >= 1.0);
+        w = Math.sqrt((-2.0 * Math.log(w)) / w);
+        y1 = x1 * w;
+        y2 = x2 * w;
+        use_last = true;
+      }
+  
+      var retval = mean + stdev * y1;
+      if (retval > 0)
+        return retval;
+      return -retval;
+    }
+}
 
+/** Normal distributions for timing samples */
+let cognitiveStartDistribution = gaussian(CS_mean, CS_stdev);
+let cognitiveEndDistribution = gaussian(CE_mean, CE_stdev);
+
+/**
+ * @brief       : function to randomly generate direction based on probability
+ * @returns     : name of direction to avert to 
+ */
 function sampleDirection() {
     // up (39.3%), down (29.4%), left (15.7%), right (15.7%)
     var prob = Math.random();
@@ -22,6 +60,11 @@ function sampleDirection() {
     else return "right";
 }
 
+
+/**
+ * @brief       : get pitch, roll, yaw for given direction
+ * @returns     : array of p, r, y angles
+ */
 function getAngles(direction) {
     switch (direction) {
         case "up":
@@ -38,14 +81,13 @@ function getAngles(direction) {
 }
 
 function cognitiveAversion() {
-    //var startTime = cognitiveStartDistribution.ppf(Math.random());
-    //var endTime = cognitiveEndDistribution.ppf(Math.random());
-    startTime = 1.32;
-    endTime = 2.23;
+    startTime = cognitiveStartDistribution();
+    endTime = cognitiveEndDistribution();
     var totalAversionTime = startTime + endTime;
     var direction = sampleDirection();
     var angles = getAngles(direction);
-    misty.MoveHead(angles[0], angles[1], angles[2], null, totalAversionTime);
+    misty.MoveHead(angles[0], angles[1], angles[2], 99, null);
+    misty.Pause(totalAversionTime * 1000);
 }
 
 // set to neutral position

@@ -1,5 +1,5 @@
-/*
- * File for Intimcay Regulation Head Aversion Skill - Head Only
+/**
+ * File for Intimacy Regulation Head Aversion Skill - Head Only
  */
 
 /** Intimacy aversion timing parameters*/ 
