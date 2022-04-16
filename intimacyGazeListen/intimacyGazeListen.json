@@ -1,0 +1,17 @@
+{
+    "Name":"intimacyGazeListen",
+    "UniqueId":"e072c091-1529-4129-bdb5-40af0e639ee4",
+    "Description":"My skill is amazing!",
+    "StartupRules":["Manual","Robot"],
+    "Language":"javascript",
+    "BroadcastMode":"verbose",
+    "TimeoutInSeconds":600,
+    "CleanupOnCancel":true,
+    "WriteToLog":false,
+    "Parameters":
+        {
+            "int":10,
+            "double":20.5,
+            "string":"twenty"
+        }
+}

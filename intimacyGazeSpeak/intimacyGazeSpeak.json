@@ -1,6 +1,6 @@
 {
-    "Name":"intimacyGaze",
-    "UniqueId":"e072c091-1529-4129-bdb5-40af0e639ee4",
+    "Name":"intimacyGazeSpeak",
+    "UniqueId":"3610c3b3-11bd-4be0-b872-85b299eef73e",
     "Description":"My skill is amazing!",
     "StartupRules":["Manual","Robot"],
     "Language":"javascript",
@@ -9,9 +9,9 @@
     "CleanupOnCancel":true,
     "WriteToLog":false,
     "Parameters":
-        {
-            "int":10,
-            "double":20.5,
-            "string":"twenty"
-        }
+    {
+        "int":10,
+        "double":20.5,
+        "string":"twenty"
+    }
 }
