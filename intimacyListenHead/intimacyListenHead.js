@@ -1,17 +1,52 @@
-// cognitive aversion head move skill
-// import "gaussian"
+/*
+ * File for Intimcay Regulation Head Aversion Skill - Head Only
+ */
 
-// cognitive processing aversion
+/** Intimacy aversion timing parameters*/ 
 const IL_mean = 1.14;
 const IL_stdev = 0.27;
 const ILD_mean = 7.21;
 const ILD_stdev = 1.88;
 
-//aversionLengthDistribution = gaussian(IL_mean, IL_stdev);
-//aversionDistanceDistribution = gaussian(ILD_mean, ILD_stdev);
+/**
+ * @brief       : function to randomly generate normal distributions with given mean and stdev
+ * @returns     : function for normal distribution 
+ */
+function gaussian(mean, stdev) {
+    var y2;
+    var use_last = false;
+    return function() {
+      var y1;
+      if (use_last) {
+        y1 = y2;
+        use_last = false;
+      } else {
+        var x1, x2, w;
+        do {
+          x1 = 2.0 * Math.random() - 1.0;
+          x2 = 2.0 * Math.random() - 1.0;
+          w = x1 * x1 + x2 * x2;
+        } while (w >= 1.0);
+        w = Math.sqrt((-2.0 * Math.log(w)) / w);
+        y1 = x1 * w;
+        y2 = x2 * w;
+        use_last = true;
+      }
+  
+      var retval = mean + stdev * y1;
+      if (retval > 0)
+        return retval;
+      return -retval;
+    }
+}
 
-/*
- * @brief : function to randomly generate direction based on probability
+/** Normal distributions for timing samples */
+let listenAversionLengthDistribution = gaussian(IL_mean, IL_stdev);
+let listenAversionDistanceDistribution = gaussian(ILD_mean, ILD_stdev);
+
+/**
+ * @brief       : function to randomly generate direction based on probability
+ * @returns     : name of direction to avert to 
  */
 function sampleDirection() {
     // up (28.8%), down (28.8%), left (13.7%), right (13.7%)
@@ -25,8 +60,9 @@ function sampleDirection() {
     else return "right";
 }
 
-/*
- * @brief : get pitch, roll, yaw for given direction
+/**
+ * @brief       : get pitch, roll, yaw for given direction
+ * @returns     : array of p, r, y angles
  */
 function getAngles(direction) {
     switch (direction) {
@@ -43,26 +79,31 @@ function getAngles(direction) {
     }
 }
 
-/*
- * @brief : intimacy gaze aversion while listening
+/**
+ * @brief       : intimacy gaze aversion while listening
  */
 function intimacyListenAversion() {
-    //var aversionLength = cognitiveStartDistribution.ppf(Math.random());
-    aversionLength = 1.14;
+    aversionLength = listenAversionLengthDistribution();
+    // aversionLength = 1.14;
     var direction = sampleDirection();
     var angles = getAngles(direction);
-    // aversion
-    misty.MoveHead(angles[0], angles[1], angles[2], null, aversionLength);
+
+    // aversion with velocity profile
+    // misty.MoveHead(angles[0] / 2, angles[1] / 2, angles[2] / 2, 50, null);
+    misty.MoveHead(angles[0], angles[1], angles[2], 99, null);
+
+    misty.Pause(aversionLength * 1000);
     // move back to neutral position
-    misty.MoveHead(0, 0, 0, 95, null);
+
+    misty.MoveHead(0, 0, 0, 99, null);
 
 }
 
-misty.MoveHead(0, 0, 0, 95, null);
-
+misty.MoveHead(0, 0, 0, 99, null);
+/** Main loop */
 while (true) {
-    //var aversionDistance = cognitiveEndDistribution.ppf(Math.random());
-    aversionDistance = 7.21;
+    aversionDistance = listenAversionDistanceDistribution();
+    // aversionDistance = 7.21;
     intimacyListenAversion();
     misty.Pause(aversionDistance * 1000);
 }

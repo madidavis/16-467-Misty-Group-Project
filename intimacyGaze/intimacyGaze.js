@@ -1,3 +1,7 @@
+/*
+ * File for Intimcay Regulation Head Aversion Skill - Eyes Only
+ */
+
 /** @brief      :       Paths to Access Gaze Img Files */
 let gazeImgPath = "eyeImages/"
 let gazeImgLeft = [ "left_a.png", 
@@ -60,6 +64,13 @@ const probRight = 288;                                      /**< Probability Gaz
 const probUp = 137;                                         /**< Probability Gaze Aversion is Up */
 const probDown = 287;                                       /**< Probability Gaze Aversion is Down */
 
+
+/** Intimacy aversion timing parameters*/ 
+const IL_mean = 1.14;
+const IL_stdev = 0.27;
+const ILD_mean = 7.21;
+const ILD_stdev = 1.88;
+
 /** Construct an Array to Determine Direction Probabilities */
 let probLeftArray = new Array(probLeft).fill("left");       
 let probRightArray = new Array(probRight).fill("right");
@@ -68,16 +79,40 @@ let probDownArray = new Array(probDown).fill("down");
 
 let probGazeDirection = [].concat(probLeftArray, probRightArray, probUpArray, probDownArray);
 
-//let dir = determineGazeDirection()
-while (true) {
-    misty.Pause(7000);
-    let gazeDir = determineGazeDirection();
-    gazeAversionForward(gazeDir);
-    misty.Pause(500);
-    gazeAversionBackward(gazeDir);
+/**
+ * @brief       : function to randomly generate normal distributions with given mean and stdev
+ * @returns     : function for normal distribution 
+ */
+function gaussian(mean, stdev) {
+    var y2;
+    var use_last = false;
+    return function() {
+      var y1;
+      if (use_last) {
+        y1 = y2;
+        use_last = false;
+      } else {
+        var x1, x2, w;
+        do {
+          x1 = 2.0 * Math.random() - 1.0;
+          x2 = 2.0 * Math.random() - 1.0;
+          w = x1 * x1 + x2 * x2;
+        } while (w >= 1.0);
+        w = Math.sqrt((-2.0 * Math.log(w)) / w);
+        y1 = x1 * w;
+        y2 = x2 * w;
+        use_last = true;
+      }
+  
+      var retval = mean + stdev * y1;
+      if (retval > 0)
+        return retval;
+      return -retval;
+    }
 }
 
-
+let listenAversionLengthDistribution = gaussian(IL_mean, IL_stdev);
+let listenAversionDistanceDistribution = gaussian(ILD_mean, ILD_stdev);
 
 /**
  * @brief       :       Randomly Determine Direction for Intimacy Regulation Gaze Aversion
@@ -193,3 +228,13 @@ function gazeDown(dir) {
     }
 }
 
+/** Main loop */
+while (true) {
+    aversionDistance = listenAversionDistanceDistribution();
+    aversionLength = listenAversionLengthDistribution();
+    misty.Pause(aversionDistance * 1000);
+    let gazeDir = determineGazeDirection();
+    gazeAversionForward(gazeDir);
+    misty.Pause(aversionLength * 1000);
+    gazeAversionBackward(gazeDir);
+}

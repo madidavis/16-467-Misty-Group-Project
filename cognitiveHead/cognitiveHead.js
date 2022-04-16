@@ -42,22 +42,16 @@ function cognitiveAversion() {
     //var endTime = cognitiveEndDistribution.ppf(Math.random());
     startTime = 1.32;
     endTime = 2.23;
-    misty.Debug("times calculated");
     var totalAversionTime = startTime + endTime;
     var direction = sampleDirection();
     var angles = getAngles(direction);
     misty.MoveHead(angles[0], angles[1], angles[2], null, totalAversionTime);
 }
 
-// set ot neutral position
-
-misty.Debug("Moving to neutral position\n");
-
-misty.MoveHead(0, 0, 0, 95, null);
+// set to neutral position
+misty.MoveHead(0, 0, 0, 99, null);
 cognitiveAversion();
-
-misty.Debug("Aversion complete, moving to neutral again\n");
-misty.MoveHead(0, 0, 0, 95, null);
+misty.MoveHead(0, 0, 0, 99, null);
 
 
 
