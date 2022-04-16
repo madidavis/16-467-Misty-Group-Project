@@ -1,0 +1,17 @@
+{
+    "Name":"cognitiveGaze",
+    "UniqueId":"851c54a1-efaf-4c3e-9814-5ac8ac86641a",
+    "Description":"My skill is amazing!",
+    "StartupRules":["Manual","Robot"],
+    "Language":"javascript",
+    "BroadcastMode":"verbose",
+    "TimeoutInSeconds":600,
+    "CleanupOnCancel":true,
+    "WriteToLog":false,
+    "Parameters":
+    {
+        "int":10,
+        "double":20.5,
+        "string":"twenty"
+    }
+}
