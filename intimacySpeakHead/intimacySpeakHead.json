@@ -1,0 +1,19 @@
+{
+    "Name": "intimacySpeakHead",
+    "UniqueId": "d0e24f14-051e-41d7-a569-f6c69b0812ee",
+    "Description": "My skill is amazing!",
+    "StartupRules": [
+      "Manual",
+      "Robot"
+    ],
+    "Language": "javascript",
+    "BroadcastMode": "verbose",
+    "TimeoutInSeconds": 600,
+    "CleanupOnCancel": true,
+    "WriteToLog": false,
+    "Parameters": {
+      "int": 10,
+      "double": 20.5,
+      "string": "twenty"
+    }
+  }
