@@ -1,0 +1,15 @@
+{
+    "Name": "floorHead",
+    "UniqueId": "fc49c13d-a3ba-47b7-97f7-ad64e2a9e6dc",
+    "Description": "Floor management head aversion skill",
+    "StartupRules": [
+      "Manual",
+      "Robot"
+    ],
+    "Language": "javascript",
+    "BroadcastMode": "verbose",
+    "TimeoutInSeconds": 600,
+    "CleanupOnCancel": true,
+    "WriteToLog": false,
+    "Parameters": {}
+  }
