@@ -1,7 +1,7 @@
 {
     "Name":"intimacyGazeSpeak",
     "UniqueId":"3610c3b3-11bd-4be0-b872-85b299eef73e",
-    "Description":"My skill is amazing!",
+    "Description":"Intimacy gaze aversion speaking eyes only",
     "StartupRules":["Manual","Robot"],
     "Language":"javascript",
     "BroadcastMode":"verbose",

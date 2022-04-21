@@ -1,17 +1,19 @@
 {
-    "Name":"floorManagementGaze",
-    "UniqueId":"70802a75-3e8c-499d-90c8-cae1b860cb97",
-    "Description":"My skill is amazing!",
-    "StartupRules":["Manual","Robot"],
-    "Language":"javascript",
-    "BroadcastMode":"verbose",
-    "TimeoutInSeconds":600,
-    "CleanupOnCancel":true,
-    "WriteToLog":false,
-    "Parameters":
-    {
-        "int":10,
-        "double":20.5,
-        "string":"twenty"
+    "Name": "floorManagementGaze",
+    "UniqueId": "37aaddb0-6679-4927-bcbd-46e254a662ad",
+    "Description": "Floor management eyes only",
+    "StartupRules": [
+      "Manual",
+      "Robot"
+    ],
+    "Language": "javascript",
+    "BroadcastMode": "verbose",
+    "TimeoutInSeconds": 600,
+    "CleanupOnCancel": true,
+    "WriteToLog": false,
+    "Parameters": {
+      "int": 10,
+      "double": 20.5,
+      "string": "twenty"
     }
-}
+  }

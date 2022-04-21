@@ -163,12 +163,12 @@ function gazeLeft(dir) {
     if (dir == "forward") {
         for (let idx=0; idx<lstLen; idx++) {
             misty.DisplayImage(gazeImgLeft[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     } else {
         for (let idx=(lstLen-1); idx>=0; idx--) {
             misty.DisplayImage(gazeImgLeft[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     }
 }
@@ -180,12 +180,12 @@ function gazeRight(dir) {
     if (dir == "forward") {
         for (let idx=0; idx<lstLen; idx++) {
             misty.DisplayImage(gazeImgRight[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     } else {
         for (let idx=(lstLen-1); idx>=0; idx--) {
             misty.DisplayImage(gazeImgRight[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     }
 }
@@ -197,12 +197,12 @@ function gazeUp(dir) {
     if (dir == "forward") {
         for (let idx=0; idx<lstLen; idx++) {
             misty.DisplayImage(gazeImgUp[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     } else {
         for (let idx=(lstLen-1); idx>=0; idx--) {
             misty.DisplayImage(gazeImgUp[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     }
 }
@@ -214,24 +214,23 @@ function gazeDown(dir) {
     if (dir == "forward") {
         for (let idx=0; idx<lstLen; idx++) {
             misty.DisplayImage(gazeImgDown[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     } else {
         for (let idx=(lstLen-1); idx>=0; idx--) {
             misty.DisplayImage(gazeImgDown[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     }
 }
 
-/** Main loop */
-while (true) {
-    misty.Pause(3000);
-    startTime = utteranceStartDistribution();
-    endTime = utteranceEndDistribution();
-    var totalAversionTime = startTime + endTime;
-    let gazeDir = determineGazeDirection();
-    gazeAversionForward(gazeDir);
-    misty.Pause(aversionLength * 1000);
-    gazeAversionBackward(gazeDir);
-}
+/** Main calling sequence */
+// neutral head position
+misty.MoveHead(0, 0, 0, 99);
+startTime = utteranceStartDistribution();
+endTime = utteranceEndDistribution();
+var totalAversionTime = startTime + endTime;
+let gazeDir = determineGazeDirection();
+gazeAversionForward(gazeDir);
+misty.Pause(totalAversionTime * 1000);
+gazeAversionBackward(gazeDir);

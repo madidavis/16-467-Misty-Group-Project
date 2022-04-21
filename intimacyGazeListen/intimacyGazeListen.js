@@ -167,12 +167,12 @@ function gazeLeft(dir) {
     if (dir == "forward") {
         for (let idx=0; idx<lstLen; idx++) {
             misty.DisplayImage(gazeImgLeft[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     } else {
         for (let idx=(lstLen-1); idx>=0; idx--) {
             misty.DisplayImage(gazeImgLeft[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     }
 }
@@ -184,12 +184,12 @@ function gazeRight(dir) {
     if (dir == "forward") {
         for (let idx=0; idx<lstLen; idx++) {
             misty.DisplayImage(gazeImgRight[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     } else {
         for (let idx=(lstLen-1); idx>=0; idx--) {
             misty.DisplayImage(gazeImgRight[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     }
 }
@@ -201,12 +201,12 @@ function gazeUp(dir) {
     if (dir == "forward") {
         for (let idx=0; idx<lstLen; idx++) {
             misty.DisplayImage(gazeImgUp[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     } else {
         for (let idx=(lstLen-1); idx>=0; idx--) {
             misty.DisplayImage(gazeImgUp[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     }
 }
@@ -218,18 +218,18 @@ function gazeDown(dir) {
     if (dir == "forward") {
         for (let idx=0; idx<lstLen; idx++) {
             misty.DisplayImage(gazeImgDown[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     } else {
         for (let idx=(lstLen-1); idx>=0; idx--) {
             misty.DisplayImage(gazeImgDown[idx]);
-            misty.Pause(100);
+            misty.Pause(50);
         }
     }
 }
 
 // move head to neutral position
-misty.MoveHead(0, 0, 0, 80);
+misty.MoveHead(0, 0, 0, 99);
 misty.SetBlinking(true);
 
 /** Main loop */

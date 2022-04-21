@@ -1,11 +1,11 @@
 {
     "Name":"intimacyGazeListen",
     "UniqueId":"e072c091-1529-4129-bdb5-40af0e639ee4",
-    "Description":"My skill is amazing!",
+    "Description":"Intimacy gaze aversion eyes only",
     "StartupRules":["Manual","Robot"],
     "Language":"javascript",
     "BroadcastMode":"verbose",
-    "TimeoutInSeconds":600,
+    "TimeoutInSeconds":800,
     "CleanupOnCancel":true,
     "WriteToLog":false,
     "Parameters":
