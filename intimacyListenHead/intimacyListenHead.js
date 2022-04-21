@@ -84,7 +84,6 @@ function getAngles(direction) {
  */
 function intimacyListenAversion() {
     aversionLength = listenAversionLengthDistribution();
-    // aversionLength = 1.14;
     var direction = sampleDirection();
     var angles = getAngles(direction);
 
@@ -96,7 +95,6 @@ function intimacyListenAversion() {
     // move back to neutral position
 
     misty.MoveHead(0, 0, 0, 99, null);
-
 }
 
 misty.MoveHead(0, 0, 0, 99, null);

@@ -93,6 +93,7 @@ function intimacySpeakAversion() {
     misty.MoveHead(angles[0], angles[1], angles[2], 99, null);
 
     misty.Pause(aversionLength * 1000);
+
     // move back to neutral position
 
     misty.MoveHead(0, 0, 0, 99, null);

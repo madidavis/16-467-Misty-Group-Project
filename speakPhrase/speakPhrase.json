@@ -1,0 +1,19 @@
+{
+    "Name": "speakPhrase",
+    "UniqueId": "a3b39268-1a53-4114-bb5d-85914a5574ad",
+    "Description": "Get Misty to speak a phrase",
+    "StartupRules": [
+      "Manual",
+      "Robot"
+    ],
+    "Language": "javascript",
+    "BroadcastMode": "verbose",
+    "TimeoutInSeconds": 600,
+    "CleanupOnCancel": true,
+    "WriteToLog": false,
+    "Parameters": {
+      "int": 10,
+      "double": 20.5,
+      "string": "twenty"
+    }
+  }

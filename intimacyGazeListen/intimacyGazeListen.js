@@ -228,6 +228,10 @@ function gazeDown(dir) {
     }
 }
 
+// move head to neutral position
+misty.MoveHead(0, 0, 0, 80);
+misty.SetBlinking(true);
+
 /** Main loop */
 while (true) {
     aversionDistance = listenAversionDistanceDistribution();
