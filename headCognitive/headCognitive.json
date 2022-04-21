@@ -1,7 +1,7 @@
 {
-    "Name": "floorManagementGaze",
-    "UniqueId": "37aaddb0-6679-4927-bcbd-46e254a662ad",
-    "Description": "Floor management eyes only",
+    "Name": "headCognitive",
+    "UniqueId": "b7d7a6e7-0a74-40f4-b55f-234dc0afb6ce",
+    "Description": "Cognitive gaze aversion head only",
     "StartupRules": [
       "Manual",
       "Robot"
@@ -15,5 +15,6 @@
       "int": 10,
       "double": 20.5,
       "string": "twenty"
-    }
-  }
+    },
+    "type" : "module"
+}

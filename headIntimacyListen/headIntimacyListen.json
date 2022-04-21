@@ -1,7 +1,7 @@
 {
-    "Name": "intimacyListenHead",
-    "UniqueId": "c4b0f571-1c70-46de-bec8-dee849918914",
-    "Description": "Gaze aversion for intimacy regulation while listening",
+    "Name": "headIntimacyListen",
+    "UniqueId": "a913b0f9-3749-46c2-8088-76111e8d4355",
+    "Description": "Intimacy gaze aversion listen head only",
     "StartupRules": [
       "Manual",
       "Robot"
@@ -16,4 +16,4 @@
       "double": 20.5,
       "string": "twenty"
     }
-  }
+}

@@ -1,7 +1,7 @@
 {
-    "Name": "intimacySpeakHead",
-    "UniqueId": "d0e24f14-051e-41d7-a569-f6c69b0812ee",
-    "Description": "My skill is amazing!",
+    "Name": "eyesFloorManagement",
+    "UniqueId": "37aaddb0-6679-4927-bcbd-46e254a662ad",
+    "Description": "Floor management eyes only",
     "StartupRules": [
       "Manual",
       "Robot"

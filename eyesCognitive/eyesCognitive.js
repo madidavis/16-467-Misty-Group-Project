@@ -1,9 +1,9 @@
 /*
- * File for Floor Management Aversion Skill - Eyes Only
+ * File for Cognitive Processing Head Aversion Skill - Eyes Only
  */
 
 /** @brief      :       Paths to Access Gaze Img Files */
-let gazeImgPath = "eyeImages/"
+const gazeImgPath = "eyeImages/"
 const gazeImgLeft = [ "left_a.png", 
                     "left_b.png",
                     "left_c.png",
@@ -53,19 +53,18 @@ let gazeImgDown = [ "down_a.png",
 
 
 /** @brief      :       Variables regarding proabilities for different Gaze Aversion Parameters */
-/** Probabilities for Inimacy Regulation Gaze Aversion Direction */
-const probLeft = 288;                                       /**< Probability Gaze Aversion is to the Left */
-const probRight = 288;                                      /**< Probability Gaze Aversion is to the Left */
-const probUp = 137;                                         /**< Probability Gaze Aversion is Up */
-const probDown = 287;                                       /**< Probability Gaze Aversion is Down */
+/** Probabilities for Cognitive Processing Gaze Aversion Direction */
+const probLeft = 157;                                       /**< Probability Gaze Aversion is to the Left */
+const probRight = 157;                                      /**< Probability Gaze Aversion is to the Left */
+const probUp = 393;                                         /**< Probability Gaze Aversion is Up */
+const probDown = 293;                                       /**< Probability Gaze Aversion is Down */
 
 
-/** Intimacy aversion timing parameters*/ 
-const US_mean = 1.03;
-const US_stdev = 0.39;
-const UE_mean = 1.27;
-const UE_stdev = 0.51;
-
+/** Cognitive aversion timing parameters*/ 
+const CS_mean = 1.32;
+const CS_stdev = 0.47;
+const CE_mean = 2.23;
+const CE_stdev = 0.63;
 
 /** Construct an Array to Determine Direction Probabilities */
 let probLeftArray = new Array(probLeft).fill("left");       
@@ -107,8 +106,8 @@ function gaussian(mean, stdev) {
     }
 }
 
-let utteranceStartDistribution = gaussian(US_mean, US_stdev);
-let utteranceEndDistribution = gaussian(UE_mean, UE_stdev);
+let cognitiveStartDistribution = gaussian(CS_mean, CS_stdev);
+let cognitiveEndDistribution = gaussian(CE_mean, CE_stdev);
 
 /**
  * @brief       :       Randomly Determine Direction for Intimacy Regulation Gaze Aversion
@@ -225,10 +224,8 @@ function gazeDown(dir) {
 }
 
 /** Main calling sequence */
-// neutral head position
-misty.MoveHead(0, 0, 0, 99);
-startTime = utteranceStartDistribution();
-endTime = utteranceEndDistribution();
+startTime = cognitiveStartDistribution();
+endTime = cognitiveEndDistribution();
 var totalAversionTime = startTime + endTime;
 let gazeDir = determineGazeDirection();
 gazeAversionForward(gazeDir);
