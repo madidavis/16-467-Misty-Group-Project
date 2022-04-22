@@ -1,0 +1,19 @@
+{
+    "Name": "task3_2",
+    "UniqueId": "69744ffc-1bbc-4570-b741-72694f021604",
+    "Description": "Speaking phrase for Task 3 Q2",
+    "StartupRules": [
+      "Manual",
+      "Robot"
+    ],
+    "Language": "javascript",
+    "BroadcastMode": "verbose",
+    "TimeoutInSeconds": 600,
+    "CleanupOnCancel": true,
+    "WriteToLog": false,
+    "Parameters": {
+      "int": 10,
+      "double": 20.5,
+      "string": "twenty"
+    }
+}

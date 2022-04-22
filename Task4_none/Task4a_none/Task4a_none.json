@@ -1,0 +1,19 @@
+{
+  "Name": "Task4a_none",
+  "UniqueId": "2a46e6f8-2e9a-45ca-9c9b-fb5bcdc66f56",
+  "Description": "My skill is amazing!",
+  "StartupRules": [
+    "Manual",
+    "Robot"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "verbose",
+  "TimeoutInSeconds": 600,
+  "CleanupOnCancel": true,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}
