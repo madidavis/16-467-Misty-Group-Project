@@ -1,0 +1,22 @@
+{
+  "Name": "Task1d_gaze",
+  "UniqueId": "c8f33102-a4f7-434d-9813-7ae557bc5925",
+  "Description": "My skill is amazing!",
+  "StartupRules": [
+    "Manual",
+    "Robot"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "verbose",
+  "TimeoutInSeconds": 600,
+  "CleanupOnCancel": true,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}
+
+
+
