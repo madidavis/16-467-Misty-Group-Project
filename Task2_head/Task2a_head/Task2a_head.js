@@ -4,6 +4,7 @@
 
 /** @brief      :       Audio File for Task */
 const task1Speech = "Task2a.mp3"
+const volume = 10;
 
 // cognitive processing aversion
 const CS_mean = 1.32;
@@ -93,33 +94,10 @@ function cognitiveAversion() {
     misty.Pause(totalAversionTime * 1000);
 }
 
-// set to neutral position
-misty.MoveHead(0, 0, 0, 99, null);
-cognitiveAversion();
-misty.MoveHead(0, 0, 0, 99, null);
-
-
-
-
-
 /** Main calling sequence */
-// Determine Length of Aversion
-startTime = cognitiveStartDistribution();
-endTime = cognitiveEndDistribution();
-var totalAversionTime = startTime + endTime;
 
-// Determine aversion direction
-let gazeDir = determineGazeDirection();
-
-// Determine length of pause before aversion
-let pauseTime = 7 + Math.floor(Math.random() * 4);
-
-
-
-//Run Gaze Aversion
-misty.MoveHead(0, 0, 0, 99, null);
+// Run Gaze Aversion
 cognitiveAversion();
 misty.MoveHead(0, 0, 0, 99, null);
 
-// Play Audio
-misty.PlayAudio(task1Speech, 100);
+misty.PlayAudio(task1Speech, volume);

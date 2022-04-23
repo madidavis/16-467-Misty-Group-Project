@@ -1,12 +1,10 @@
 /**
- * Skill for Cognitive Aversion Task 1 Question 1 (Gaze)
+ * Skill for Cognitive Aversion Task 2 Question 2 (Gaze)
  */
 
 /** @brief      :       Audio File for Task */
-const task1Speech = "Task2b.mp3"
-
-
-
+const task1Speech = "Task2b.mp3";
+const volume = 10;
 
 /** @brief      :       Paths to Access Gaze Img Files */
 const gazeImgPath = "eyeImages/"
@@ -230,6 +228,7 @@ function gazeDown(dir) {
 }
 
 /** Main calling sequence */
+
 // Determine Length of Aversion
 startTime = cognitiveStartDistribution();
 endTime = cognitiveEndDistribution();
@@ -238,12 +237,10 @@ var totalAversionTime = startTime + endTime;
 // Determine aversion direction
 let gazeDir = determineGazeDirection();
 
-// Determine length of pause before aversion
-let pauseTime = 7 + Math.floor(Math.random() * 4);
-
-
-//Run Gaze Aversion
+// Run Gaze Aversion
 gazeAversionForward(gazeDir);
 misty.Pause(totalAversionTime * 1000);
 gazeAversionBackward(gazeDir);
-misty.PlayAudio(task1Speech, 100);
+
+// Play Audio
+misty.PlayAudio(task1Speech, volume);
