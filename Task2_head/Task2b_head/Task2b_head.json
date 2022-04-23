@@ -1,0 +1,19 @@
+{
+  "Name": "Taskb_head",
+  "UniqueId": "9c7d5ebb-dcc4-43dd-ab2f-c2e170c68d94",
+  "Description": "My skill is amazing!",
+  "StartupRules": [
+    "Manual",
+    "Robot"
+  ],
+  "Language": "javascript",
+  "BroadcastMode": "verbose",
+  "TimeoutInSeconds": 600,
+  "CleanupOnCancel": true,
+  "WriteToLog": false,
+  "Parameters": {
+    "int": 10,
+    "double": 20.5,
+    "string": "twenty"
+  }
+}
